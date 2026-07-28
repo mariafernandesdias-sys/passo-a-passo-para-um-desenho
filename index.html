@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprenda a Desenhar Passo a Passo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Aprenda a Desenhar: Desenho de Gato</h1>
+    <p>Siga os passos simples abaixo para fazer o seu desenho!</p>
+  </header>
+
+  <main class="tutorial-container">
+    <div class="card">
+      <div class="step-number" id="step-number">Passo 1 de 4</div>
+      
+      <div class="image-box">
+        <img id="step-image" src="https://via.placeholder.com/400x300?text=Passo+1:+Formas+Basicas" alt="Passo do tutorial">
+      </div>
+
+      <h2 id="step-title">1. Formas Básicas</h2>
+      <p id="step-description">Comece desenhando um círculo para a cabeça e um oval maior para o corpo. Use traços bem leves!</p>
+
+      <div class="buttons">
+        <button id="prev-btn" onclick="changeStep(-1)" disabled>Anterior</button>
+        <button id="next-btn" onclick="changeStep(1)">Próximo</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
