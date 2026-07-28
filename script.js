@@ -1,94 +1,48 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+// Dados dos passos do tutorial
+const steps = [
+  {
+    title: "1. Formas Básicas",
+    description: "Comece desenhando um círculo para a cabeça e uma forma oval inclinada para o corpo. Use lápis fraco!",
+    image: "https://via.placeholder.com/400x300?text=Passo+1:+Formas+Basicas"
+  },
+  {
+    title: "2. Orelhas e Patas",
+    description: "Adicione dois triângulos no topo do círculo para fazer as orelhas e adicione os esboços das patas na base.",
+    image: "https://via.placeholder.com/400x300?text=Passo+2:+Orelhas+e+Patas"
+  },
+  {
+    title: "3. Rosto e Detalhes",
+    description: "Desenhe os olhos, o nariz e o focinho. Adicione o rabo saindo da parte de trás do corpo.",
+    image: "https://via.placeholder.com/400x300?text=Passo+3:+Rosto+e+Detalhes"
+  },
+  {
+    title: "4. Arte-Final e Cor",
+    description: "Passe uma caneta escura nos traços principais, apague as linhas de lápis e pinte seu desenho!",
+    image: "https://via.placeholder.com/400x300?text=Passo+4:+Arte-Final+e+Cor"
+  }
+];
 
-body {
-  background-color: #f4f7f6;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
+let currentStep = 0;
 
-header {
-  text-align: center;
-  margin: 30px 20px 10px;
-}
+// Elementos do DOM
+const stepNumberEl = document.getElementById("step-number");
+const stepImageEl = document.getElementById("step-image");
+const stepTitleEl = document.getElementById("step-title");
+const stepDescriptionEl = document.getElementById("step-description");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
 
-header h1 {
-  color: #4a90e2;
-  margin-bottom: 8px;
-}
+// Função para mudar de passo
+function changeStep(direction) {
+  currentStep += direction;
 
-.tutorial-container {
-  width: 90%;
-  max-width: 500px;
-  margin: 20px auto;
-}
+  // Atualiza o conteúdo da página
+  stepNumberEl.textContent = `Passo ${currentStep + 1} de ${steps.length}`;
+  stepImageEl.src = steps[currentStep].image;
+  stepTitleEl.textContent = steps[currentStep].title;
+  stepDescriptionEl.textContent = steps[currentStep].description;
 
-.card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.step-number {
-  font-weight: bold;
-  color: #888;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-}
-
-.image-box img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 2px solid #eee;
-  margin-bottom: 15px;
-}
-
-.card h2 {
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.card p {
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-button {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #4a90e2;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-button:hover:not(:disabled) {
-  background-color: #357abd;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+  // Ativa/Desativa os botões dependendo da etapa
+  prevBtn.disabled = currentStep === 0;
+  nextBtn.disabled = currentStep === steps.length - 1;
 }
