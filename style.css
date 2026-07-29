@@ -1,94 +1,53 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* Estilos Gerais */
 body {
-  background-color: #f4f7f6;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 header {
-  text-align: center;
-  margin: 30px 20px 10px;
+    background-color: #6c5ce7;
+    color: white;
+    padding: 2rem 1rem;
 }
 
-header h1 {
-  color: #4a90e2;
-  margin-bottom: 8px;
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
-.tutorial-container {
-  width: 90%;
-  max-width: 500px;
-  margin: 20px auto;
+/* Card para cada passo */
+.passo {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.passo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-.step-number {
-  font-weight: bold;
-  color: #888;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-}
-
-.image-box img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 2px solid #eee;
-  margin-bottom: 15px;
-}
-
-.card h2 {
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.card p {
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
+/* Botão */
 button {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #4a90e2;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
+    background-color: #00b894;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-button:hover:not(:disabled) {
-  background-color: #357abd;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+button:hover {
+    background-color: #00876c;
 }
