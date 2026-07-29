@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aprenda a Desenhar Passo a Passo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprenda a Desenhar Passo a Passo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Aprenda a Desenhar: Desenho de Gato</h1>
-    <p>Siga os passos simples abaixo para fazer o seu desenho!</p>
-  </header>
+    <header>
+        <h1>Como Desenhar um Personagem</h1>
+        <p>Siga o passo a passo abaixo para criar seu desenho do zero!</p>
+    </header>
 
-  <main class="tutorial-container">
-    <div class="card">
-      <div class="step-number" id="step-number">Passo 1 de 4</div>
-      
-      <div class="image-box">
-        <img id="step-image" src="https://via.placeholder.com/400x300?text=Passo+1:+Formas+Basicas" alt="Passo do tutorial">
-      </div>
+    <main class="container">
+        <section class="passo">
+            <h2>Passo 1: Esboço Inicial</h2>
+            <p>Comece desenhando formas geométricas simples para definir a pose.</p>
+            <img src="https://via.placeholder.com/300x200" alt="Passo 1 do desenho">
+        </section>
 
-      <h2 id="step-title">1. Formas Básicas</h2>
-      <p id="step-description">Comece desenhando um círculo para a cabeça e um oval maior para o corpo. Use traços bem leves!</p>
+        <section class="passo">
+            <h2>Passo 2: Detalhes e Linhas</h2>
+            <p>Agora refine o contorno e adicione os detalhes dos olhos e roupas.</p>
+            <img src="https://via.placeholder.com/300x200" alt="Passo 2 do desenho">
+        </section>
 
-      <div class="buttons">
-        <button id="prev-btn" onclick="changeStep(-1)" disabled>Anterior</button>
-        <button id="next-btn" onclick="changeStep(1)">Próximo</button>
-      </div>
-    </div>
-  </main>
+        <button id="btn-concluir">Marcar como Concluído!</button>
+        <p id="mensagem-status"></p>
+    </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
