@@ -1,143 +1,153 @@
-/* Variáveis para fácil manutenção de cores e transições */
+/* Configurações Globais de Design System */
 :root {
-    --primary-color: #6c5ce7;
-    --primary-hover: #5b4cc4;
-    --success-color: #00b894;
-    --success-hover: #009476;
-    --text-main: #2d3436;
-    --text-muted: #636e72;
-    --bg-body: #f8f9fa;
+    /* Cores do Modo Claro */
+    --primary: #4f46e5;
+    --primary-light: #818cf8;
+    --primary-dark: #3730a3;
+    --success: #10b981;
+    --success-bg: #ecfdf5;
+    --success-border: #a7f3d0;
+    --text-title: #1f2937;
+    --text-body: #4b5563;
+    --bg-page: #f3f4f6;
     --bg-card: #ffffff;
-    --shadow: 0 10px 20px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.07);
-    --radius: 12px;
-    --transition: all 0.3s ease;
+    
+    /* Efeitos */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --radius-main: 16px;
+    --radius-inner: 10px;
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Reset básico e configurações globais */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Sobrescrita de Variáveis para o Modo Escuro */
+[data-theme="dark"] {
+    --text-title: #f9fafb;
+    --text-body: #d1d5db;
+    --bg-page: #0f172a;
+    --bg-card: #1e293b;
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    --success-bg: #064e3b;
+    --success-border: #047857;
 }
 
+/* Reset Técnico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-body);
-    color: var(--text-main);
-    line-height: 1.6;
+    font-family: var(--font);
+    background-color: var(--bg-page);
+    color: var(--text-body);
+    line-height: 1.7;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Header com degradê moderno e padding responsivo */
+/* Barra de Progresso Fixa */
+.progress-bar-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 6px;
+    background-color: rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.progress-bar {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--primary), #ec4899);
+    transition: width 0.1s ease-out;
+}
+
+/* Botão de Troca de Tema Interativo */
+.theme-toggle {
+    position: fixed; top: 20px; right: 20px; z-index: 999;
+    background: var(--bg-card); border: 1px solid rgba(0,0,0,0.1);
+    width: 48px; height: 48px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-sm); color: var(--text-title);
+    transition: transform 0.2s, background-color 0.3s;
+}
+.theme-toggle:hover { transform: scale(1.1); }
+[data-theme="light"] .moon-icon { display: block; }
+[data-theme="light"] .sun-icon { display: none; }
+[data-theme="dark"] .moon-icon { display: none; }
+[data-theme="dark"] .sun-icon { display: block; }
+
+/* Cabeçalho Premium */
 .main-header {
-    background: linear-gradient(135deg, var(--primary-color), #a29bfe);
-    color: white;
-    padding: 3rem 1.5rem;
-    text-align: center;
+    background: radial-gradient(circle at top right, var(--primary-dark), #1e1b4b);
+    color: white; padding: 5rem 1.5rem 6rem 1.5rem; text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+.badge {
+    background-color: rgba(255,255,255,0.15); color: #c7d2fe;
+    padding: 6px 16px; border-radius: 50px; font-size: 0.85rem;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+}
+.header-content h1 { font-size: 2.75rem; margin: 1rem 0 0.5rem 0; font-weight: 800; letter-spacing: -1px;}
+.header-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.85; font-weight: 300; }
+
+/* Container & Cards */
+.container { max-width: 760px; margin: -40px auto 80px auto; padding: 0 20px; }
+.passo-card {
+    background: var(--bg-card); padding: 35px; border-radius: var(--radius-main);
+    box-shadow: var(--shadow-lg); margin-bottom: 35px;
+    border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease;
+}
+.passo-card:hover { transform: translateY(-4px); }
+
+.passo-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.passo-numero {
+    background-color: rgba(79, 70, 229, 0.1); color: var(--primary);
+    font-weight: 800; padding: 4px 12px; border-radius: var(--radius-inner); font-size: 1.1rem;
+}
+.passo-card h2 { color: var(--text-title); font-size: 1.6rem; font-weight: 700; }
+.passo-card p { color: var(--text-body); font-size: 1.05rem; margin-bottom: 25px; text-align: justify; }
+
+/* Wrapper Avançado de Imagens */
+.img-wrapper {
+    position: relative; width: 100%; border-radius: var(--radius-inner);
+    overflow: hidden; box-shadow: var(--shadow-sm); cursor: zoom-in;
+}
+.img-wrapper img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+.img-overlay {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white; padding: 20px; font-size: 0.95rem; font-weight: 500;
+    opacity: 0; transform: translateY(10px); transition: all 0.3s ease;
+}
+.img-wrapper:hover img { transform: scale(1.05); }
+.img-wrapper:hover .img-overlay { opacity: 1; transform: translateY(0); }
+
+/* Área de Ações e Botão */
+.acoes-usuario { text-align: center; margin-top: 40px; }
+.btn-primary {
+    background: linear-gradient(135deg, var(--success), #059669);
+    color: white; border: none; padding: 18px 45px; font-size: 1.1rem;
+    font-weight: 700; border-radius: var(--radius-main); cursor: pointer;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-primary:hover {
+    transform: scale(1.03); box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+}
+.btn-primary:disabled { opacity: 0; transform: scale(0.9); pointer-events: none; }
+
+/* Caixa de Sucesso */
+.card-sucesso {
+    display: none; background-color: var(--success-bg); border: 2px solid var(--success-border);
+    border-radius: var(--radius-main); padding: 25px; text-align: left;
+    align-items: center; gap: 20px; animation: slideUp 0.5s forwards ease-out;
+}
+.sucesso-icone { font-size: 2.5rem; }
+.sucesso-texto h3 { color: var(--text-title); font-size: 1.3rem; margin-bottom: 4px; }
+.sucesso-texto p { color: var(--text-body); font-size: 1rem; }
+
+/* Animações */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.header-content h1 {
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.header-content p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-/* Layout do Container */
-.container {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/* Cards dos Passos aprimorados */
-.passo {
-    background: var(--bg-card);
-    margin-bottom: 30px;
-    padding: 30px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    text-align: left; /* Alinhamento à esquerda melhora a leitura */
-}
-
-.passo h2 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.passo p {
-    color: var(--text-muted);
-    margin-bottom: 20px;
-}
-
-/* Container de imagem para evitar quebras de layout e manter proporção */
-.img-container {
-    width: 100%;
-    overflow: hidden;
-    border-radius: calc(var(--radius) - 4px);
-    background-color: #eee;
-}
-
-.passo img {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: var(--transition);
-}
-
-/* Efeito sutil de zoom ao passar o mouse na foto */
-.passo:hover img {
-    transform: scale(1.02);
-}
-
-/* Seção do Botão de Ação */
-.acoes-usuario {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 60px;
-}
-
-button {
-    background-color: var(--success-color);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: var(--radius);
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
-    transition: var(--transition);
-    width: 100%; /* Botão largo no mobile */
-    max-width: 300px; /* Limite de largura no desktop */
-}
-
-button:hover {
-    background-color: var(--success-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-/* Estilos da mensagem manipulados via classes CSS (Melhor prática) */
-#mensagem-status {
-    margin-top: 20px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: var(--transition);
-}
-
-#mensagem-status.ativo {
-    opacity: 1;
-    transform: translateY(0);
-    color: var(--success-color);
+/* Responsividade de Alta Fidelidade */
+@media (max-width: 640px) {
+    .main-header { padding: 4rem 1rem 5rem 1rem; }
+    .header-content h1 { font-size: 2rem; }
+    .passo-card { padding: 20px; }
+    .btn-primary { width: 100%; }
 }
