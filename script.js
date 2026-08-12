@@ -1,26 +1,54 @@
-// Agrupa a execução do código após o carregamento do DOM por segurança
 document.addEventListener('DOMContentLoaded', () => {
-    const botao = document.getElementById('btn-concluir');
-    const mensagem = document.getElementById('mensagem-status');
+    // Seletores de Elementos Dom
+    const botaoConcluir = document.getElementById('btn-concluir');
+    const boxSucesso = document.getElementById('box-sucesso');
+    const barraProgresso = document.getElementById('barra-progresso');
+    const btnTema = document.getElementById('btn-tema');
+    const htmlElement = document.documentElement;
 
-    // Função que renderiza visualmente o estado concluído
-    const definirComoConcluido = () => {
-        mensagem.textContent = "Parabéns por concluir o tutorial! Continue praticando. 🎨";
-        mensagem.classList.add('ativo');
-        botao.textContent = "Tutorial Concluído ✓";
-        botao.style.opacity = "0.7";
-        botao.style.pointerEvents = "none"; // Desabilita cliques futuros
+    // --- 1. Lógica do Modo Escuro / Claro ---
+    const alternarTema = () => {
+        const temaAtual = htmlElement.getAttribute('data-theme');
+        const novoTema = temaAtual === 'light' ? 'dark' : 'light';
+        
+        htmlElement.setAttribute('data-theme', novoTema);
+        localStorage.setItem('temaFavorito', novoTema);
     };
 
-    // Verifica se o usuário já tinha concluído este tutorial antes
-    if (localStorage.getItem('tutorialDesenhoConcluido') === 'true') {
-        definirComoConcluido();
+    // Inicialização do Tema Salvo
+    const temaSalvo = localStorage.getItem('temaFavorito') || 'light';
+    htmlElement.setAttribute('data-theme', temaSalvo);
+    btnTema.addEventListener('click', alternarTema);
+
+
+    // --- 2. Lógica da Barra de Progresso de Leitura ---
+    const atualizarBarraProgresso = () => {
+        const alturaDocumento = document.documentElement.scrollHeight - window.innerHeight;
+        if (alturaDocumento > 0) {
+            const porcentagemProgresso = (window.scrollY / alturaDocumento) * 100;
+            barraProgresso.style.width = `${porcentagemProgresso}%`;
+            // Atualiza acessibilidade em tempo de execução
+            document.querySelector('.progress-bar-container').setAttribute('aria-valuenow', Math.round(porcentagemProgresso));
+        }
+    };
+    
+    window.addEventListener('scroll', atualizarBarraProgresso);
+
+
+    // --- 3. Lógica de Conclusão do Tutorial ---
+    const exibirEstadoConcluido = () => {
+        botaoConcluir.style.display = 'none'; // Esconde botão para não poluir
+        boxSucesso.style.display = 'flex'; // Exibe a caixa estilizada de sucesso
+    };
+
+    // Verifica persistência no cache do navegador
+    if (localStorage.getItem('guiaDesenhoTerminado') === 'true') {
+        exibirEstadoConcluido();
     }
 
-    // Ouvinte do evento de clique
-    botao.addEventListener('click', () => {
-        definirComoConcluido();
-        // Salva o estado no navegador do usuário
-        localStorage.setItem('tutorialDesenhoConcluido', 'true');
+    // Clique de Conclusão com Animação Natural
+    botaoConcluir.addEventListener('click', () => {
+        localStorage.setItem('guiaDesenhoTerminado', 'true');
+        exibirEstadoConcluido();
     });
 });
