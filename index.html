@@ -1,57 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aprenda a desenhar personagens do zero com este guia prático passo a passo. Perfeito para iniciantes.">
-    <title>Aprenda a Desenhar Passo a Passo | Guia Prático</title>
+    <meta name="description" content="Aprenda a desenhar personagens incríveis do zero com nosso guia prático, interativo e passo a passo. Perfeito para iniciantes!">
+    <title>Aprenda a Desenhar Passo a Passo | Portal do Desenho</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Barra de Progresso de Leitura -->
+    <div class="progress-bar-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progresso da leitura">
+        <div class="progress-bar" id="barra-progresso"></div>
+    </div>
+
+    <!-- Botão de Alternar Tema (Dark Mode) -->
+    <button class="theme-toggle" id="btn-tema" aria-label="Alternar modo escuro" type="button">
+        <svg class="sun-icon" xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="moon-icon" xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+
     <header class="main-header">
         <div class="header-content">
+            <span class="badge">Curso de Desenho Grátis</span>
             <h1>Como Desenhar um Personagem</h1>
-            <p>Siga o passo a passo abaixo para criar seu desenho do zero!</p>
+            <p>Siga o método simplificado das formas geométricas para criar artes incríveis do zero!</p>
         </div>
     </header>
 
     <main class="container">
-        <!-- O uso de article agrupa logicamente o conteúdo do tutorial -->
         <article class="tutorial">
-            <section class="passo">
-                <h2>Passo 1: Esboço Inicial</h2>
-                <p>Comece desenhando formas geométricas simples para definir a pose do corpo e da cabeça.</p>
-                <div class="img-container">
-                    <img src="https://placeholder.com" 
-                         alt="Esboço inicial usando círculos e linhas estruturais para a pose do personagem" 
+            
+            <!-- Passo 1 -->
+            <section class="passo-card">
+                <div class="passo-header">
+                    <span class="passo-numero">01</span>
+                    <h2>Esboço Inicial e Estrutura</h2>
+                </div>
+                <p>O maior erro do iniciante é começar pelos detalhes. Use formas geométricas básicas, como círculos para a cabeça e linhas retas para guiar os braços e pernas. Isso garante a proporção correta antes de avançar.</p>
+                <div class="img-wrapper">
+                    <img src="https://unsplash.com" 
+                         alt="Mão desenhando esboços e formas geométricas em um caderno de desenho com lápis" 
                          loading="lazy" 
-                         width="600" 
-                         height="400">
+                         width="800" 
+                         height="500">
+                    <div class="img-overlay">Dica: Desenhe com o lápis bem leve!</div>
                 </div>
             </section>
 
-            <section class="passo">
-                <h2>Passo 2: Detalhes e Linhas</h2>
-                <p>Agora refine o contorno principal e adicione os detalhes dos olhos, cabelo e roupas.</p>
-                <div class="img-container">
-                    <img src="https://placeholder.com" 
-                         alt="Contorno finalizado do personagem com detalhes de expressão e roupas adicionados" 
+            <!-- Passo 2 -->
+            <section class="passo-card">
+                <div class="passo-header">
+                    <span class="passo-numero">02</span>
+                    <h2>Lineart e Refinamento</h2>
+                </div>
+                <p>Com a estrutura pronta, diminua a opacidade do seu esboço (ou apague levemente com limpa-tipos) e defina as linhas finais. Adicione expressões faciais marcantes, o movimento do cabelo e as dobras das roupas.</p>
+                <div class="img-wrapper">
+                    <img src="https://unsplash.com" 
+                         alt="Ilustrador profissional finalizando contornos pretos e firmes em uma mesa digitalizadora" 
                          loading="lazy" 
-                         width="600" 
-                         height="400">
+                         width="800" 
+                         height="500">
+                    <div class="img-overlay">Dica: Traços firmes geram mais profissionalismo!</div>
                 </div>
             </section>
+            
         </article>
 
-        <!-- Seção de controle com atributos de acessibilidade -->
-        <div class="acoes-usuario">
-            <button id="btn-concluir" type="button">Marcar como Concluído!</button>
-            <p id="mensagem-status" role="status" aria-live="polite"></p>
-        </div>
+        <!-- Seção de Ação e Sucesso -->
+        <footer class="acoes-usuario">
+            <button id="btn-concluir" class="btn-primary" type="button">
+                <span>Marcar como Concluído!</span>
+            </button>
+            
+            <!-- Caixa de Parabéns (Oculta por padrão no CSS) -->
+            <div id="box-sucesso" class="card-sucesso" role="status" aria-live="polite">
+                <div class="sucesso-icone">🎉</div>
+                <div class="sucesso-texto">
+                    <h3>¡Missão Cumprida!</h3>
+                    <p>Você completou o guia básico. Pegue seu caderno de desenhos e aplique este processo agora mesmo!</p>
+                </div>
+            </div>
+        </footer>
     </main>
 
-    <!-- O atributo defer garante que o JS rode após o carregamento do HTML -->
     <script src="script.js" defer></script>
 </body>
 </html>
