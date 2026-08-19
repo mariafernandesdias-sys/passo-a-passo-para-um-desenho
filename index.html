@@ -7,22 +7,22 @@
     <title>Aprenda a Desenhar Passo a Passo | Portal Artístico</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos básicos para garantir a visualização correta dos SVGs informativos */
+        /* Variáveis de cores para os temas Claro e Escuro */
         :root {
-            --bg-card: #ffffff;
-            --text-color: #333333;
-            --stroke-sketch: #a0aec0;
+            --bg-card: #f7fafc;
+            --text-color: #2d3748;
+            --stroke-sketch: #718096;
             --stroke-guide: #e53e3e;
             --stroke-final: #1a202c;
-            --shade-color: rgba(0, 0, 0, 0.15);
+            --shade-color: rgba(0, 0, 0, 0.12);
         }
         [data-theme="dark"] {
             --bg-card: #1a202c;
             --text-color: #f7fafc;
             --stroke-sketch: #4a5568;
             --stroke-guide: #fc8181;
-            --stroke-final: #e2e8f0;
-            --shade-color: rgba(255, 255, 255, 0.25);
+            --stroke-final: #f7fafc;
+            --shade-color: rgba(255, 255, 255, 0.18);
         }
         .img-wrapper {
             background: var(--bg-card);
@@ -38,6 +38,14 @@
         .img-wrapper svg {
             max-width: 100%;
             height: auto;
+            display: block;
+        }
+        .img-overlay {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: var(--text-color);
+            opacity: 0.8;
+            text-align: center;
         }
     </style>
 </head>
@@ -73,14 +81,27 @@
                 </div>
                 <p>Nenhum desenho profissional começa direto nos detalhes. Use formas geométricas básicas: um círculo para o crânio, linhas simples para a espinha e articulações, e caixas para o torso. Desenhe linhas bem leves para que possam ser apagadas depois.</p>
                 <div class="img-wrapper">
-                    <svg width="400" height="300" viewBox="0 0 400 300" aria-label="Diagrama mostrando formas geométricas básicas para a estrutura do corpo">
-                        <circle cx="200" cy="60" r="35" fill="none" stroke="var(--stroke-sketch)" stroke-width="2" stroke-dasharray="4"/>
-                        <line x1="200" y1="95" x2="200" y2="180" stroke="var(--stroke-sketch)" stroke-width="2" stroke-dasharray="4"/>
-                        <rect x="160" y="105" width="80" height="70" rx="5" fill="none" stroke="var(--stroke-sketch)" stroke-width="2" stroke-dasharray="4"/>
-                        <line x1="160" y1="110" x2="130" y2="170" stroke="var(--stroke-sketch)" stroke-width="2"/>
-                        <line x1="240" y1="110" x2="270" y2="170" stroke="var(--stroke-sketch)" stroke-width="2"/>
-                        <circle cx="130" cy="170" r="6" fill="none" stroke="var(--stroke-sketch)" stroke-width="2"/>
-                        <circle cx="270" cy="170" r="6" fill="none" stroke="var(--stroke-sketch)" stroke-width="2"/>
+                    <!-- SVG Passo 1: Estrutura Cinza Tracejada -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org">
+                        <g fill="none" stroke="var(--stroke-sketch)" stroke-width="2">
+                            <!-- Cabeça -->
+                            <circle cx="200" cy="55" r="35" stroke-dasharray="4"/>
+                            <!-- Espinha e Pescoço -->
+                            <line x1="200" y1="90" x2="200" y2="175" stroke-dasharray="4"/>
+                            <!-- Ombros -->
+                            <line x1="150" y1="110" x2="250" y2="110"/>
+                            <!-- Caixa do Torso -->
+                            <rect x="155" y="110" width="90" height="65" rx="4" stroke-dasharray="4"/>
+                            <!-- Articulações dos Ombros -->
+                            <circle cx="150" cy="110" r="5" fill="var(--bg-card)"/>
+                            <circle cx="250" cy="110" r="5" fill="var(--bg-card)"/>
+                            <!-- Braços Simplificados -->
+                            <line x1="150" y1="115" x2="125" y2="180"/>
+                            <line x1="250" y1="115" x2="275" y2="180"/>
+                            <!-- Mãos em Círculos -->
+                            <circle cx="125" cy="185" r="6" stroke-dasharray="2"/>
+                            <circle cx="275" cy="185" r="6" stroke-dasharray="2"/>
+                        </g>
                     </svg>
                     <div class="img-overlay">Dica: Mantenha a mão leve no papel para facilitar o apagado.</div>
                 </div>
@@ -94,14 +115,31 @@
                 </div>
                 <p>Com o esqueleto pronto, adicione "massa" ao personagem. Desenhe cilindros para os braços e pernas, e conecte o pescoço ao torso. Utilize linhas de grade no rosto (uma linha horizontal para os olhos e uma vertical para simetria) para guiar as feições.</p>
                 <div class="img-wrapper">
-                    <svg width="400" height="300" viewBox="0 0 400 300" aria-label="Diagrama mostrando a adição de volume anatômico e linhas de guia faciais">
-                        <circle cx="200" cy="60" r="35" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.5"/>
-                        <rect x="160" y="105" width="80" height="70" rx="5" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.5"/>
-                        <line x1="200" y1="25" x2="200" y2="95" stroke="var(--stroke-guide)" stroke-width="1.5"/>
-                        <path d="M 165 60 Q 200 70 235 60" fill="none" stroke="var(--stroke-guide)" stroke-width="1.5"/>
-                        <path d="M 165 95 Q 150 135 130 170 Q 140 175 150 140 Q 170 120 175 105 Z" fill="none" stroke="var(--stroke-final)" stroke-width="1.5" stroke-dasharray="2"/>
-                        <path d="M 235 95 Q 250 135 270 170 Q 260 175 250 140 Q 230 120 225 105 Z" fill="none" stroke="var(--stroke-final)" stroke-width="1.5" stroke-dasharray="2"/>
-                        <path d="M 160 105 Q 200 95 240 105 L 230 180 Q 200 190 170 180 Z" fill="none" stroke="var(--stroke-final)" stroke-width="1.5"/>
+                    <!-- SVG Passo 2: Massa Anatômica e Linhas Guia Vermelhas -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org">
+                        <!-- Estrutura anterior de fundo apagada -->
+                        <g fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.3">
+                            <circle cx="200" cy="55" r="35"/>
+                            <rect x="155" y="110" width="90" height="65" rx="4"/>
+                        </g>
+                        <!-- Linhas Guia Faciais de Simetria (Vermelhas) -->
+                        <g fill="none" stroke="var(--stroke-guide)" stroke-width="1.5">
+                            <line x1="200" y1="20" x2="200" y2="90"/> <!-- Eixo Vertical -->
+                            <line x1="165" y1="55" x2="235" y2="55"/> <!-- Eixo Horizontal dos Olhos -->
+                        </g>
+                        <!-- Massa Corporal Construída -->
+                        <g fill="none" stroke="var(--stroke-sketch)" stroke-width="2">
+                            <!-- Contorno do Rosto -->
+                            <path d="M167,45 C165,75 180,90 200,92 C220,90 235,75 233,45"/>
+                            <!-- Pescoço -->
+                            <line x1="185" y1="88" x2="185" y2="110"/>
+                            <line x1="215" y1="88" x2="215" y2="110"/>
+                            <!-- Músculo do Ombro e Torso -->
+                            <path d="M150,115 C160,110 185,110 185,110 L180,175 C180,175 200,180 220,175 L215,110 C215,110 240,110 250,115"/>
+                            <!-- Braços Volumosos (Cilindros) -->
+                            <path d="M150,115 L130,175 C132,178 142,178 145,175 L160,120"/>
+                            <path d="M250,115 L270,175 C268,178 258,178 255,175 L240,120"/>
+                        </g>
                     </svg>
                     <div class="img-overlay">Dica: A distância entre os dois olhos costuma ser a largura de um terceiro olho!</div>
                 </div>
@@ -115,30 +153,17 @@
                 </div>
                 <p>Agora que o corpo está anatomicamente correto, vista o seu personagem. O cabelo deve ser desenhado em grandes blocos/mechas primeiro, seguindo a curvatura da cabeça. Adicione dobras naturais nas roupas onde as articulações se dobram (cotovelos e joelhos).</p>
                 <div class="img-wrapper">
-                    <svg width="400" height="300" viewBox="0 0 400 300" aria-label="Esboço de roupas e cabelos volumosos sobre a base anatômica">
-                        <circle cx="200" cy="60" r="35" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.3"/>
-                        <path d="M 160 105 L 240 105 L 230 180 L 170 180 Z" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.3"/>
-                        <path d="M 160 65 Q 150 20 200 15 Q 250 20 240 65 Q 255 45 220 30 Q 200 30 180 40 Z" fill="none" stroke="var(--stroke-final)" stroke-width="1.5"/>
-                        <path d="M 180 40 Q 195 55 190 70 M 220 40 Q 205 55 210 70" fill="none" stroke="var(--stroke-final)" stroke-width="1.2"/>
-                        <path d="M 150 100 Q 200 120 250 100 L 240 190 Q 200 205 160 190 Z" fill="none" stroke="var(--stroke-final)" stroke-width="1.8"/>
-                        <path d="M 165 130 Q 185 140 170 155 M 235 130 Q 215 140 230 155" fill="none" stroke="var(--stroke-final)" stroke-width="1.2"/>
-                    </svg>
-                    <div class="img-overlay">Dica: Cabelo tem volume! Desenhe-o um pouco acima da linha do crânio.</div>
-                </div>
-            </section>
-
-            <!-- Passo 4 -->
-            <section class="passo-card">
-                <div class="passo-header">
-                    <span class="passo-numero">04</span>
-                    <h2>A Lineart Final (Arte-Final)</h2>
-                </div>
-                <p>Chegou a hora de limpar a bagunça do esboço. Se estiver no papel, use uma caneta nanquim ou hidrográfica preta por cima das linhas corretas e apague o grafite. Se estiver no digital, crie uma nova camada e faça traços firmes e contínuos.</p>
-                <div class="img-wrapper">
-                    <!-- SVG Corrigido: Traço limpo e contornos definitivos com feições visíveis -->
-                    <svg width="400" height="300" viewBox="0 0 400 300" aria-label="Contornos finais limpos e sem linhas de rascunho">
-                        <path d="M 168 65 Q 165 95 200 100 Q 235 95 232 65" fill="none" stroke="var(--stroke-final)" stroke-width="2"/>
-                        <path d="M 160 65 Q 150 20 200 15 Q 250 20 240 65 Q 250 50 225 32 Q 200 28 175 42 Z" fill="none" stroke="var(--stroke-final)" stroke-width="2"/>
-                        <ellipse cx="185" cy="65" rx="4" ry="2" fill="var(--stroke-final)"/>
-                        <ellipse cx="215" cy="65" rx="4" ry="2" fill="var(--stroke-final)"/>
-                        <path d="M 197 80 Q 200 83 203 80" fill="none" stroke="var(--stroke-final)" stroke-width="1.5"/>
+                    <!-- SVG Passo 3: Blocos de Cabelo e Silhueta de Roupa sobrepostos -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org">
+                        <!-- Corpo base cinza claro de fundo -->
+                        <path d="M167,45 C165,75 180,90 200,92 C220,90 235,75 233,45" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.4"/>
+                        <path d="M150,115 C160,110 185,110 185,110 L180,175 L215,175 L215,110 C215,110 240,110 250,115" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.4"/>
+                        
+                        <!-- Desenho das Mechas de Cabelo (Cria volume externo) -->
+                        <g fill="none" stroke="var(--stroke-sketch)" stroke-width="2">
+                            <path d="M158,50 C145,25 180,10 200,12 C220,10 255,25 242,50 C252,35 230,20 200,22 C170,20 148,35 158,50 Z"/>
+                            <path d="M175,35 Q190,50 185,65 M225,35 Q210,50 215,65"/> <!-- Franja interna -->
+                        </g>
+                        <!-- Esboço da Camiseta com Gola e Mangas -->
+                        <g fill="none" stroke="var(--stroke-sketch)" stroke-width="2">
+                            <!-- Gola V -->
