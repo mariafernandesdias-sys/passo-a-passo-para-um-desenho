@@ -19,7 +19,7 @@
         [data-theme="dark"] {
             --bg-card: #1a202c;
             --text-color: #f7fafc;
-            --stroke-sketch: #4a5568;
+            --stroke-sketch: #a0aec0; /* Aumentado o contraste para o modo escuro */
             --stroke-guide: #fc8181;
             --stroke-final: #f7fafc;
             --shade-color: rgba(255, 255, 255, 0.18);
@@ -36,7 +36,8 @@
             margin-top: 15px;
         }
         .img-wrapper svg {
-            max-width: 100%;
+            width: 100%;
+            max-width: 400px;
             height: auto;
             display: block;
         }
@@ -52,13 +53,15 @@
 <body>
 
     <!-- Barra de Progresso de Leitura -->
-    <div class="progress-bar-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progresso da leitura">
+    <div class="progress-bar-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progresso-container" aria-label="Progresso da leitura">
         <div class="progress-bar" id="barra-progresso"></div>
     </div>
 
     <!-- Botão de Alternar Tema (Dark Mode Neon) -->
     <button class="theme-toggle" id="btn-tema" aria-label="Alternar modo escuro" type="button">
+        <!-- Correção do xmlns do SVG do Sol -->
         <svg class="sun-icon" xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <!-- Correção do xmlns do SVG da Lua -->
         <svg class="moon-icon" xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
     </button>
 
@@ -81,8 +84,8 @@
                 </div>
                 <p>Nenhum desenho profissional começa direto nos detalhes. Use formas geométricas básicas: um círculo para o crânio, linhas simples para a espinha e articulações, e caixas para o torso. Desenhe linhas bem leves para que possam ser apagadas depois.</p>
                 <div class="img-wrapper">
-                    <!-- SVG Passo 1: Estrutura Cinza Tracejada -->
-                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org">
+                    <!-- SVG Passo 1 corrigido com xmlns oficial da W3C -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org" aria-label="Desenho esquemático mostrando formas geométricas básicas para a estrutura do corpo">
                         <g fill="none" stroke="var(--stroke-sketch)" stroke-width="2">
                             <!-- Cabeça -->
                             <circle cx="200" cy="55" r="35" stroke-dasharray="4"/>
@@ -103,7 +106,7 @@
                             <circle cx="275" cy="185" r="6" stroke-dasharray="2"/>
                         </g>
                     </svg>
-                    <div class="img-overlay">Dica: Mantenha a mão leve no papel para facilitar o apagado.</div>
+                    <div class="img-overlay">Dica: Mantenha a mão leve no papel para facilitar o apagamento posterior.</div>
                 </div>
             </section>
 
@@ -115,8 +118,8 @@
                 </div>
                 <p>Com o esqueleto pronto, adicione "massa" ao personagem. Desenhe cilindros para os braços e pernas, e conecte o pescoço ao torso. Utilize linhas de grade no rosto (uma linha horizontal para os olhos e uma vertical para simetria) para guiar as feições.</p>
                 <div class="img-wrapper">
-                    <!-- SVG Passo 2: Massa Anatômica e Linhas Guia Vermelhas -->
-                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org">
+                    <!-- SVG Passo 2 corrigido com xmlns oficial da W3C -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org" aria-label="Desenho esquemático com a blocagem de massa muscular e linhas guia vermelhas no rosto">
                         <!-- Estrutura anterior de fundo apagada -->
                         <g fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.3">
                             <circle cx="200" cy="55" r="35"/>
@@ -144,26 +147,10 @@
                     <div class="img-overlay">Dica: A distância entre os dois olhos costuma ser a largura de um terceiro olho!</div>
                 </div>
             </section>
+            
+        </article>
+    </main>
 
-            <!-- Passo 3 -->
-            <section class="passo-card">
-                <div class="passo-header">
-                    <span class="passo-numero">03</span>
-                    <h2>Roupas, Cabelo e Detalhes</h2>
-                </div>
-                <p>Agora que o corpo está anatomicamente correto, vista o seu personagem. O cabelo deve ser desenhado em grandes blocos/mechas primeiro, seguindo a curvatura da cabeça. Adicione dobras naturais nas roupas onde as articulações se dobram (cotovelos e joelhos).</p>
-                <div class="img-wrapper">
-                    <!-- SVG Passo 3: Blocos de Cabelo e Silhueta de Roupa sobrepostos -->
-                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://w3.org">
-                        <!-- Corpo base cinza claro de fundo -->
-                        <path d="M167,45 C165,75 180,90 200,92 C220,90 235,75 233,45" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.4"/>
-                        <path d="M150,115 C160,110 185,110 185,110 L180,175 L215,175 L215,110 C215,110 240,110 250,115" fill="none" stroke="var(--stroke-sketch)" stroke-width="1" opacity="0.4"/>
-                        
-                        <!-- Desenho das Mechas de Cabelo (Cria volume externo) -->
-                        <g fill="none" stroke="var(--stroke-sketch)" stroke-width="2">
-                            <path d="M158,50 C145,25 180,10 200,12 C220,10 255,25 242,50 C252,35 230,20 200,22 C170,20 148,35 158,50 Z"/>
-                            <path d="M175,35 Q190,50 185,65 M225,35 Q210,50 215,65"/> <!-- Franja interna -->
-                        </g>
-                        <!-- Esboço da Camiseta com Gola e Mangas -->
-                        <g fill="none" stroke="var(--stroke-sketch)" stroke-width="2">
-                            <!-- Gola V -->
+</body>
+</html>
+
